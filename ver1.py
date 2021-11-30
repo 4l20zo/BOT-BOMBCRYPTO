@@ -1,5 +1,6 @@
 import time
 import pyautogui
+import cv2 as cv
 
 pyautogui.PAUSE = 0.2
 
