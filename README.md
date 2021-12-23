@@ -8,6 +8,8 @@ https://www.python.org/downloads/
 
 2 INSTALAR OS PACOTES
 
+pip install pillow
+
 pip install opencv-python
 https://pypi.org/project/opencv-python/
 
