@@ -8,6 +8,9 @@ https://www.python.org/downloads/
 
 2 INSTALAR OS PACOTES
 
+pip install opencv-python
+https://pypi.org/project/opencv-python/
+
 py -m pip install pyautogui
 https://pyautogui.readthedocs.io/en/latest/install.html
 
