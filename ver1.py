@@ -2,7 +2,7 @@ import time
 import pyautogui
 import cv2 as cv
 
-pyautogui.PAUSE = 0.2
+pyautogui.PAUSE = 0.02
 
 def region():
     r = None
@@ -48,7 +48,7 @@ def login2():
         time.sleep(1)
         pyautogui.click(b)
         print('Assinado')
-        mapa()
+        hero()
 
 def mapa():
     attemp = 0
@@ -61,10 +61,10 @@ def mapa():
         if attemp > 35:
             erros()
     else:
-        time.sleep(1)
+        time.sleep(0.5)
+        pyautogui.click(c)
         pyautogui.click(c)
         print('Entrando no Mapa')
-        hero()
 
 def hero():
     attemp = 0
@@ -100,6 +100,21 @@ def scroll():
         pyautogui.moveTo(e)
         print('Scrollando')
         time.sleep(1)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
+        pyautogui.scroll(-10)
         pyautogui.scroll(-10)
         pyautogui.scroll(-10)
         pyautogui.scroll(-10)
@@ -167,11 +182,22 @@ def selecthero():
         time.sleep(1)
         pyautogui.click(f)
         time.sleep(1)
-        pyautogui.click(g)
+        pyautogui.click(f)
+        time.sleep(1)
+        pyautogui.click(f)
+        time.sleep(1)
+        pyautogui.click(f)
+        time.sleep(1)
+        pyautogui.click(f)
+        time.sleep(1)
+        pyautogui.click(f)
         time.sleep(1)
         pyautogui.click(g)
         time.sleep(1)
         pyautogui.click(g)
+        time.sleep(1)
+        pyautogui.click(g)
+        mapa()
 
 def erros():
     relogio = 0
