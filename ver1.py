@@ -74,7 +74,7 @@ def hero():
         d = pyautogui.locateCenterOnScreen('4.png', confidence=0.8)
         attemp += 1
         time.sleep(0.5)
-        if attemp > 15:
+        if attemp > 25:
             erros()
     else:
         pyautogui.moveTo(d)
@@ -201,16 +201,20 @@ def selecthero():
 
 def erros():
     relogio = 0
+    vv = 0
     region()
     okk = None
     newmap = None
     while True:
         okk = pyautogui.locateCenterOnScreen('ok.png', confidence=0.8)
         newmap = pyautogui.locateCenterOnScreen('new.png', confidence=0.8)
+        voltar = pyautogui.locateCenterOnScreen('voltar.png', confidence=0.8)
         print('Procurando')
-        time.sleep(34)
+        time.sleep(55)
         relogio += 1
+        vv += 1
         print(relogio)
+        print(vv)
         if okk is not None:
             print('Achou erro')
             pyautogui.click(okk)
@@ -219,7 +223,30 @@ def erros():
             print('Achou novo mapa')
             pyautogui.click(newmap)
             return erros()
-        if relogio > 55:
-            return  erros()
+        if vv > 4:
+            voltar = None
+            while voltar is None:
+                voltar = pyautogui.locateCenterOnScreen('voltar.png', confidence=0.8)
+            else:
+                pyautogui.doubleClick(voltar)
+                time.sleep(0.5)
+                pyautogui.doubleClick(voltar)
+                voltarmap = None
+            while voltarmap is None:
+                voltarmap = pyautogui.locateCenterOnScreen('3.png', confidence=0.8)
+            else:
+                pyautogui.doubleClick(voltarmap)
+                time.sleep(0.5)
+                pyautogui.doubleClick(voltarmap)
+                vv = 0
+        if relogio > 34:
+            erros()
 
 erros()
+
+
+
+                
+
+
+
