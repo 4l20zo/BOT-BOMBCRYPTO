@@ -2,7 +2,7 @@ import time
 import pyautogui
 import cv2 as cv
 
-pyautogui.PAUSE = 0.02
+pyautogui.PAUSE = 0.055
 
 def region():
     r = None
@@ -26,7 +26,7 @@ def login():
         a = pyautogui.locateCenterOnScreen('1.png', confidence=0.9)
         attemp += 1
         time.sleep(0.5)
-        if attemp > 15:
+        if attemp > 25:
             erros()
     else:
         time.sleep(1)
@@ -74,14 +74,14 @@ def hero():
         d = pyautogui.locateCenterOnScreen('4.png', confidence=0.8)
         attemp += 1
         time.sleep(0.5)
-        if attemp > 25:
+        if attemp > 100:
             erros()
     else:
         pyautogui.moveTo(d)
-        time.sleep(5)
+        time.sleep(2.5)
         pyautogui.click(d)
         print('Lista de Herois')
-        time.sleep(5)
+        time.sleep(2.5)
         pyautogui.click(d)
         scroll()
 
@@ -89,164 +89,62 @@ def scroll():
     attemp = 0
     e = None
     while e is None:
+        mm = pyautogui.locateCenterOnScreen('7.png', confidence=0.9)
         print('Selecionando Heroi 1')
-        e = pyautogui.locateCenterOnScreen('5.png', confidence=0.9)
+        e = pyautogui.locateCenterOnScreen('all.png', confidence=0.9)
         attemp += 1
         time.sleep(0.5)
         if attemp > 15:
             erros()
     else:
-        time.sleep(1)
-        pyautogui.moveTo(e)
-        print('Scrollando')
-        time.sleep(1)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        pyautogui.scroll(-10)
-        selecthero()
-
-def selecthero():
-    attemp = 0
-    f = None
-    while f is None:
-        print('Selecionando Heroi 2')
-        f = pyautogui.locateCenterOnScreen('6.png', confidence=0.9)
-        g = pyautogui.locateCenterOnScreen('7.png', confidence=0.9)
-        attemp += 1
+        print('all')
+        pyautogui.click(e)
         time.sleep(0.5)
-        if attemp > 15:
-            erros()
-    else:
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(f)
-        time.sleep(1)
-        pyautogui.click(g)
-        time.sleep(1)
-        pyautogui.click(g)
-        time.sleep(1)
-        pyautogui.click(g)
+        pyautogui.click(e)
+        time.sleep(0.5)
+        pyautogui.click(mm)
+        time.sleep(0.5)
+        pyautogui.click(mm)
         mapa()
 
 def erros():
     relogio = 0
     vv = 0
-    region()
     okk = None
     newmap = None
+    region()
     while True:
-        okk = pyautogui.locateCenterOnScreen('ok.png', confidence=0.8)
-        newmap = pyautogui.locateCenterOnScreen('new.png', confidence=0.8)
+        okk = pyautogui.locateCenterOnScreen('ok.png', confidence=0.7)
         voltar = pyautogui.locateCenterOnScreen('voltar.png', confidence=0.8)
         print('Procurando')
-        time.sleep(55)
+        time.sleep(34)
         relogio += 1
         vv += 1
         print(relogio)
         print(vv)
         if okk is not None:
+            vv = 0
             print('Achou erro')
-            pyautogui.click(okk)
-            return erros()
-        if newmap is not None:
-            print('Achou novo mapa')
-            pyautogui.click(newmap)
-            return erros()
-        if vv > 4:
+            erros()
+        if vv > 6:
             voltar = None
+            vv = 0
             while voltar is None:
                 voltar = pyautogui.locateCenterOnScreen('voltar.png', confidence=0.8)
             else:
+                vv = 0
                 pyautogui.doubleClick(voltar)
-                time.sleep(0.5)
+                time.sleep(0.6)
                 pyautogui.doubleClick(voltar)
                 voltarmap = None
             while voltarmap is None:
                 voltarmap = pyautogui.locateCenterOnScreen('3.png', confidence=0.8)
             else:
                 pyautogui.doubleClick(voltarmap)
-                time.sleep(0.5)
+                time.sleep(0.6)
                 pyautogui.doubleClick(voltarmap)
                 vv = 0
-        if relogio > 34:
+        if relogio > 36:
             erros()
 
 erros()
-
-
-
-                
-
-
-
